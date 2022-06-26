@@ -1,5 +1,4 @@
 //https://practice.geeksforgeeks.org/problems/union-of-two-arrays3538/1
-// { Driver Code Starts
 //Initial template for C++
 
 #include <bits/stdc++.h>
@@ -18,12 +17,52 @@ class Solution{
             s.insert(a[i]);
             
         }
-        for(int i=0;i<m;i++)
+        for(int j=0;j<m;j++)
         {
-            s.insert(b[i]);
-            
+            s.insert(b[j]);
         }
         return s.size();
+        
+        /*int i=0;
+        int j=0;
+        
+        sort(a,a+n);
+        sort(b,b+m);
+        
+        vector <int> arr;
+        
+        while(i<n && j<m)
+        {
+            if(a[i]<b[j])
+            {
+                arr.push_back(a[i]);
+                i++;
+            }
+            else if(a[i]>b[j])
+            {
+                arr.push_back(b[j]);
+                j++;
+            }
+            else
+            {
+                arr.push_back(a[i]);
+                i++;
+                j++;
+            }
+        }
+        while(i<n)
+        {
+            arr.push_back(a[i]);
+            i++;
+            
+        }
+        while(j<m)
+        {
+            arr.push_back(b[j]);
+            j++;
+            
+        }
+        return arr.size();*/
         //code here
     }
 };
