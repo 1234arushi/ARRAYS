@@ -1,11 +1,13 @@
 //https://www.codechef.com/submit/BROKPHON?tab=statement
 
+
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
     
-    //Method 3:unsuccesfull
+    
+    //Method 3:vectors
     int T;
     cin>>T;
     while(T--)
@@ -13,35 +15,32 @@ int main() {
         int N;
         cin>>N;
         int A[N];
-        int ans[112345];
-       
-        int i=0;
-        if(A[0]!=A[i+1])
-        {
-            ans[0]=ans[i+1]=1;
-
-        }
-        for(int i=1;i<N;i++)
-        {
-            if(A[i]!=A[i-1])
-            {
-                ans[i]=ans[i-1]=1;
-            }
-        }
-        int sum=0;
         for(int i=0;i<N;i++)
         {
-            if(ans[i]==1)
-            {
-                sum+=ans[i];
-                
-            }
-            
-            
+            cin>>A[i];
         }
-        cout<<sum<<"\n";
+        vector<bool> check(N,false);
+        for(int i=0;i<N-1;i++)
+        {
+            if(A[i]!=A[i+1])
+            {
+                check[i]=true;
+                check[i+1]=true;
+            }
+        }
+        int count=0;
+        for(int i=0;i<N;i++)
+        {
+            if(check[i]==true)
+            {
+                count++;
+            }
+        }
+        cout<<count<<"\n";
+        
     }
     return 0;
+    
     
     //Method 2:
     /*int T;
