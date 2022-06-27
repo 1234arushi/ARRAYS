@@ -8,8 +8,8 @@ class Solution{
     public:
     long long findMinDiff(vector<long long> a, long long n, long long m){
         
-        //TC: O(n log n)        O(log n+n)???
-        sort(a.begin(),a.end());//log n time 
+        //TC: O(n log n)        
+        sort(a.begin(),a.end());//nlog n time 
         int min_diff=INT_MAX;
         for(int i=0;i+m-1<n;i++)//n time
         {
