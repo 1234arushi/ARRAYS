@@ -1,4 +1,5 @@
 //https://practice.geeksforgeeks.org/problems/triplet-sum-in-array-1587115621/1#
+
 // { Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,7 +15,7 @@ class Solution{
        
        
         unordered_map<int,int> umap;
-        
+         
         
         for(int i=0;i<n;i++)
         {
@@ -26,7 +27,7 @@ class Solution{
                 
                 if(umap[rem])
                 {
-                    cout<<x<<" "<<y<<" "<<rem<<" ";
+                    
                     return true;
                 }
                
