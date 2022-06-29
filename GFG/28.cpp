@@ -1,22 +1,35 @@
 //https://practice.geeksforgeeks.org/problems/triplet-sum-in-array-1587115621/1#
 
-// { Driver Code Starts
-#include <bits/stdc++.h>
-using namespace std;
-
-
- // } Driver Code Ends
-class Solution{
-    public:
-    //Function to find if there exists a triplet in the 
-    //array A[] which sums up to X.
-    bool find3Numbers(int A[], int n, int X)
-    {
-       
-       
-        unordered_map<int,int> umap;
-         
+//Two pointer method
+       int l,r;
+       sort(A,A+n);
+       for(int i=0;i<n-2;i++)
+       {
+           l=i+1;
+           r=n-1;
+           while(l<r)
+           {
+               if(A[i]+A[l]+A[r]==X)
+               {
+                   //cout<<A[i]<<A[l]<<A[r]
+                   return true;
+               }
+               else if(A[i]+A[l]+A[r]>X)
+               {
+                   r--;
+               }
+               else
+               {
+                   l++;
+               }
+           }
+          
+           
+       }
+       return false;
         
+        /*my method:
+        unordered_map<int,int> umap;
         for(int i=0;i<n;i++)
         {
             int x=A[i];
@@ -36,7 +49,7 @@ class Solution{
             //then it should not consider the element in map
             //as there it's not repeated  
         }
-        return false;
+        return false;*/
         //Your Code Here
     }
 
