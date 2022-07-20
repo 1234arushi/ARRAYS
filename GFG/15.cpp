@@ -1,3 +1,24 @@
+//LEETCODE SOLUTION-
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        
+        //Method: TC->O(n)  SC->O(1)
+        int ans=0;
+       for(int i=0;i<nums.size();i++)
+       {
+           ans^=nums[i];
+           
+       }
+        return ans;
+        
+    }
+};
+
+
+
+
+
 //https://practice.geeksforgeeks.org/problems/non-repeating-element3958/1
 #include <iostream>
 #include <bits/stdc++.h>
