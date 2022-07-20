@@ -6,6 +6,9 @@ using namespace std;
  // } Driver Code Ends
 class Solution{
   public:
+    
+ 
+    //TC->O(n) SC->O(n)
     vector<int> duplicates(int arr[], int n) {
         
         
