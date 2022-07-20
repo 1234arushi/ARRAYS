@@ -37,6 +37,9 @@ public:
 	            arr[k++]=ne[j++];
 	        }
 	    }
+	    //when positive and negative no are not equal then as much as you could have alternated it then at last simply push the element as it is:
+	    //Arr[] = {-5, -2, 5, 2, 4, 7, 1, 8, 0, -8}
+	    //Output:5 -5 2 -2 4 -8 7 1 8 0 
 	    while(i<p.size())
 	    {
 	        arr[k++]=p[i++];
