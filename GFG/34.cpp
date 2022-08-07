@@ -1,4 +1,6 @@
-//class Solution {
+//https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts/
+
+class Solution {
 public:
     int minimumOperations(vector<int>& nums) {
         
