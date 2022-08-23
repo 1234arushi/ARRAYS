@@ -74,3 +74,34 @@ public:
  * NumArray* obj = new NumArray(nums);
  * int param_1 = obj->sumRange(left,right);
  */
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class NumArray {
+public:
+    //method 3:prefix sum
+    vector<int>&presum;
+    NumArray(vector<int>& nums):presum(nums) {//intializer list:means presum is       referencing to nums array but no copy at all
+        for(int i=1;i<presum.size();i++)
+        {
+            //elements store at i=1,2,3..?
+            presum[i]+=presum[i-1];
+        }
+        
+    }
+    
+    int sumRange(int left, int right) {
+        if(left==0)
+        {
+            return presum[right];
+        }
+        return presum[right]-presum[left-1];
+        
+    }
+};
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray* obj = new NumArray(nums);
+ * int param_1 = obj->sumRange(left,right);
+ */
