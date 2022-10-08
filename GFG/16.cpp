@@ -1,3 +1,34 @@
+//https://leetcode.com/problems/jump-game-ii/submissions/
+
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+        
+        int jumps=0;
+        int current=0;
+        int farthest=0;
+        for(int i=0;i<nums.size()-1;i++)
+        {
+            farthest=max(farthest,nums[i]+i);//farthest index bta rha
+            if(i==current)//jb humne saare possible paths explore kr liye
+                         //uss ek particular index ke liye
+            {
+                current=farthest;
+                jumps++;
+            }
+        }
+        return jumps;
+        
+    }
+};
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 //https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1#
 // { Driver Code Starts
 #include<bits/stdc++.h>
