@@ -1,53 +1,61 @@
 //https://practice.geeksforgeeks.org/problems/triplet-sum-in-array-1587115621/1#
 
-//Two pointer method
-       int l,r;
-       sort(A,A+n);
-       for(int i=0;i<n-2;i++)
-       {
-           l=i+1;
-           r=n-1;
-           while(l<r)
-           {
-               if(A[i]+A[l]+A[r]==X)
-               {
-                   //cout<<A[i]<<A[l]<<A[r]
-                   return true;
-               }
-               else if(A[i]+A[l]+A[r]>X)
-               {
-                   r--;
-               }
-               else
-               {
-                   l++;
-               }
-           }
-          
-           
-       }
-       return false;
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+class Solution{
+    public:
+    //Function to find if there exists a triplet in the 
+    //array A[] which sums up to X.
+    bool find3Numbers(int A[], int n, int X)
+    {
+        //two pointer:
+        sort(A,A+n);
+        //finding pairs for each fixed ele A[i] by binary search
+        for(int i=0;i<n-2;i++)
+        {
+            int l=i+1,h=n-1;//new low and high for
+            //every fixed ele A[i]
+            while(l<h)//->finding pairs for A[i]
+            {
+                if(A[i]+A[l]+A[h]==X)
+                {
+                    return true;
+                }
+                else if(A[i]+A[l]+A[h]<X)
+                {
+                    l++;
+                }
+                else
+                {
+                    h--;
+                }
+            }
+        }
+        return false;
+        //map method:
+        /*unordered_map<int,int> m;
         
-        /*my method:
-        unordered_map<int,int> umap;
         for(int i=0;i<n;i++)
         {
             int x=A[i];
             for(int j=i+1;j<n;j++)
             {
                 int y=A[j];
-                int rem = X-(x+y);
-                
-                if(umap[rem])
+                int sum=X-(x+y);
+               
+                if(m.find(sum)!=m.end())
                 {
-                    
                     return true;
                 }
                
+                //4 3
+                //1 2 2 1
             }
-            umap[A[i]]++;//so that if rem==x or rem==y
-            //then it should not consider the element in map
-            //as there it's not repeated  
+             m[A[i]]++;
         }
         return false;*/
         //Your Code Here
@@ -55,7 +63,7 @@
 
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 int main()
 {
@@ -72,4 +80,5 @@ int main()
         cout <<  ob.find3Numbers(A, n, X) << endl;
     }
 }
-  // } Driver Code Ends
+
+// } Driver Code Ends
