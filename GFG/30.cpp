@@ -1,36 +1,28 @@
 //https://leetcode.com/problems/minimum-size-subarray-sum/
+
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
-        //how do in O(n log n)???
         
-        
-        //TC->O(n) SC->O(1)
-        int start=0;
-        int end=0;
-        int min_len=INT_MAX;
-        int sum=0;
-        int n=nums.size();
-        while(end<n)//end->iterating over the whole array
+       //method 1:Two pointer approach:
+        int sum=0,start=0,ans=INT_MAX;
+        for(int i=0;i<nums.size();i++)
         {
-            while(sum<target && end<n)
+            sum+=nums[i];
+            //while loop taken cuz what if remove a single element but then also sum is 
+            //not less than target
+            //ans sum>=target:bcz we need to remove that start element for each array
+            //when sum==target or >target
+            while(sum>=target)
             {
-                sum+=nums[end++];
-            }
-            while(sum>=target && start<n)
-            {
-                if(end-start<min_len)
-                {
-                    min_len=end-start;
-                }
-                sum-=nums[start++];
+                ans=min(ans,i-start+1);
+                sum=sum-nums[start];
+                start++;
+                
+                
             }
         }
-        return (min_len!=INT_MAX)?min_len:0;
-        
-        
-   
-        
+        return (ans!=INT_MAX)?ans:0;
         
     }
 };
