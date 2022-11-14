@@ -1,4 +1,64 @@
-//https://practice.geeksforgeeks.org/problems/array-of-alternate-ve-and-ve-nos1401/1
+//https://leetcode.com/problems/rearrange-array-elements-by-sign/submissions/::::MEDIUM
+
+class Solution {
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+       //another sol:from leetcode
+        int n=nums.size();
+        vector<int> ans(n,0);
+        int indexpos=0,indexneg=1;
+        for(auto num:nums)
+        {
+            if(num>0)
+            {
+                ans[indexpos]=num;
+                indexpos+=2;
+            }
+            else
+            {
+                ans[indexneg]=num;
+                indexneg+=2;
+            }
+        }
+        return ans;
+
+        //my method:
+        /*vector<int> positive;
+        vector<int> negative;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]<0)
+            {
+                negative.push_back(nums[i]);
+            }
+            else
+            {
+                positive.push_back(nums[i]);
+            }
+        }
+        int neg=0,pos=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(i%2!=0)
+            {
+                nums[i]=negative[neg++];
+
+            }
+            else
+            {
+                nums[i]=positive[pos++];
+
+            }
+        }
+        return nums;*/
+        
+    }
+};
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+//https://practice.geeksforgeeks.org/problems/array-of-alternate-ve-and-ve-nos1401/1::::::EASY
 // { Driver Code Starts
 #include <bits/stdc++.h>
 
