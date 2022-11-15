@@ -1,42 +1,50 @@
-//https://leetcode.com/problems/find-the-duplicate-number/submissions/
+//https://leetcode.com/problems/find-the-duplicate-number/description/
+
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        
-        //TC:O(N) SC:O(1)
-        int tortoise=nums[0];
-        int hare=nums[0];
+
+        //Method 3:Tortoise method
+        int slow=nums[0];
+        int fast=nums[0];
         do
         {
-            tortoise=nums[tortoise];//slow ptr->slow+1
-            hare=nums[nums[hare]];//fast ptr->fast+2
-        }while(tortoise!=hare);
-        
-        hare=nums[0];
-        while(tortoise!=hare)
-        {
-            tortoise=nums[tortoise];
-            hare=nums[hare];
-        }
-        return hare;
-        
-        
-        //TC:O(N) SC:O(N)
-        /*unordered_map<int,int> umap;
+            slow=nums[slow];//+1
+            fast=nums[nums[fast]];//+2
+        }while(slow!=fast);
+        fast=nums[0];
+        while(slow!=fast)
+       {
+           slow=nums[slow];
+           fast=nums[fast];
+       }
+       return slow;
+       //Method 2:using map------->TC:O(n),SC:O(n)
+        /*unordered_map<int,int> m;
         for(int i=0;i<nums.size();i++)
         {
-            umap[nums[i]]++;
-        }
-        unordered_map<int,int>::iterator itr;
-        for(itr=umap.begin();itr!=umap.end();itr++)
-        {
-            if(itr->second>1)
+            if(m[nums[i]])
             {
-                return itr->first;
+                return nums[i];
+            }
+            else
+            {
+                m[nums[i]]++;
             }
         }
-        return 0;*/
-        
+        return -1;*/
+
+        //Method 1:using sorting----->TC:O(n log n),SC:O(n)
+        /*sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size()-1;i++)
+        {
+            if(nums[i]==nums[i+1])
+            {
+                return nums[i];
+
+            }
+        }
+        return -1;*/
         
     }
 };
